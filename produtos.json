@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nome": "Kit Relaxamento Aromaterapia",
+    "descricao": "Conjunto completo com difusor ultrassônico e 5 óleos essenciais puros para criar um ambiente zen em sua casa. Perfeito para meditação e momentos de tranquilidade.",
+    "preco_original": 189.90,
+    "preco_desconto": 129.90,
+    "imagem_url": "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "link_afiliado": "https://www.amazon.com.br/dp/B08N5WRWNW",
+    "categoria": "Relaxamento"
+  },
+  {
+    "id": 2,
+    "nome": "Quebra-Cabeça 1000 Peças",
+    "descricao": "Desafie sua mente com este lindo quebra-cabeça de 1000 peças com tema natureza selvagem. Peças de alta qualidade que se encaixam perfeitamente.",
+    "preco_original": 89.90,
+    "preco_desconto": 59.90,
+    "imagem_url": "https://images.unsplash.com/photo-1589244159943-4600886dd3c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "link_afiliado": "https://www.amazon.com.br/dp/B08N5WRWNW",
+    "categoria": "Jogos"
+  },
+  {
+    "id": 3,
+    "nome": "Kit Pintura por Números",
+    "descricao": "Crie sua própria obra de arte com este kit completo para iniciantes. Inclui tela numerada, pincéis e tintas acrílicas de alta qualidade.",
+    "preco_original": 149.90,
+    "preco_desconto": 99.90,
+    "imagem_url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "link_afiliado": "https://www.amazon.com.br/dp/B08N5WRWNW",
+    "categoria": "Artesanato"
+  }
+]

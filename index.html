@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lojinha! - Um Passa Tempo Especial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amarelo-pastel: #FFEAA7;
+            --amarelo-escuro: #FDCB6E;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F5F5;
+            --cinza-escuro: #333333;
+            --cor-destaque: #E17055;
+            --cor-sombra: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Efeitos suaves */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Header */
+        header {
+            background-color: var(--amarelo-pastel);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px var(--cor-sombra);
+            border-bottom: 5px solid var(--amarelo-escuro);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cinza-escuro);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .logo-accent {
+            color: var(--cor-destaque);
+        }
+
+        .slogan {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--cinza-escuro);
+            background-color: var(--branco);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            display: inline-block;
+            border: 2px solid var(--amarelo-escuro);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .security-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .badge {
+            background-color: var(--branco);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 3px 8px var(--cor-sombra);
+            border: 2px solid var(--amarelo-pastel);
+        }
+
+        .badge i {
+            color: var(--cor-destaque);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .intro-section {
+            background-color: var(--branco);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 25px var(--cor-sombra);
+            border: 3px solid var(--amarelo-pastel);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .intro-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .reflection-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+            color: var(--cinza-escuro);
+            padding: 1.2rem;
+            background-color: rgba(255, 234, 167, 0.2);
+            border-radius: 12px;
+            border-left: 4px solid var(--cor-destaque);
+            animation: fadeIn 1s ease;
+        }
+
+        .reflection-text strong {
+            color: var(--cor-destaque);
+            font-weight: 600;
+        }
+
+        /* Produtos */
+        .products-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--cor-destaque);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--branco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px var(--cor-sombra);
+            transition: all 0.3s ease;
+            border: 2px solid var(--amarelo-pastel);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--cor-destaque);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--cor-destaque);
+            color: var(--branco);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 6px;
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--cinza-escuro);
+            line-height: 1.4;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .discount-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cor-destaque);
+            background-color: rgba(225, 112, 85, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+        }
+
+        .btn-affiliate {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background-color: var(--cor-destaque);
+            color: var(--branco);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-affiliate:hover {
+            background-color: var(--amarelo-escuro);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(225, 112, 85, 0.3);
+        }
+
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 380px;
+            max-width: 90vw;
+        }
+
+        .chatbot-toggle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--cor-destaque);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border: 4px solid var(--branco);
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 1001;
+        }
+
+        .chatbot-toggle i {
+            font-size: 1.5rem;
+            color: var(--branco);
+        }
+
+        .chatbot-window {
+            background-color: var(--branco);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid var(--amarelo-pastel);
+            display: none;
+            flex-direction: column;
+            height: 500px;
+            position: relative;
+            bottom: 70px;
+        }
+
+        .chatbot-header {
+            background-color: var(--amarelo-pastel);
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 3px solid var(--amarelo-escuro);
+        }
+
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--cor-destaque);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--branco);
+        }
+
+        .chatbot-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 1.2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: var(--branco);
+        }
+
+        .message {
+            padding: 0.9rem 1.2rem;
+            border-radius: 15px;
+            max-width: 85%;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .bot-message {
+            background-color: var(--cinza-claro);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            border: 1px solid var(--amarelo-pastel);
+        }
+
+        .user-message {
+            background-color: var(--amarelo-pastel);
+            color: var(--cinza-escuro);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            font-weight: 500;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background-color: var(--cinza-claro);
+            padding: 0.9rem 1.2rem;
+            border-radius: 15px;
+            border: 1px solid var(--amarelo-pastel);
+            width: 70px;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: var(--cor-destaque);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+            animation: typingBounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .chatbot-input-area {
+            padding: 1.2rem;
+            background-color: var(--cinza-claro);
+            border-top: 2px solid var(--amarelo-pastel);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .chatbot-input {
+            flex-grow: 1;
+            padding: 0.9rem 1rem;
+            border: 2px solid var(--amarelo-pastel);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            background-color: var(--branco);
+            color: var(--cinza-escuro);
+            transition: border-color 0.3s;
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--cor-destaque);
+        }
+
+        .chatbot-send {
+            background-color: var(--cor-destaque);
+            color: var(--branco);
+            border: none;
+            border-radius: 10px;
+            width: 50px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .chatbot-send:hover {
+            background-color: var(--amarelo-escuro);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--amarelo-pastel);
+            padding: 2.5rem;
+            margin-top: 4rem;
+            border-top: 5px solid var(--amarelo-escuro);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            color: var(--cinza-escuro);
+        }
+
+        .disclaimer {
+            background-color: var(--branco);
+            padding: 1.2rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            border: 2px solid var(--cor-destaque);
+            margin-top: 1.2rem;
+            color: var(--cinza-escuro);
+        }
+
+        .disclaimer strong {
+            color: var(--cor-destaque);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .security-badges {
+                justify-content: center;
+            }
+            
+            .chatbot-container {
+                width: 320px;
+            }
+            
+            .chatbot-window {
+                height: 450px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .intro-title {
+                font-size: 1.5rem;
+            }
+            
+            .reflection-text {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .slogan {
+                font-size: 0.9rem;
+            }
+            
+            .chatbot-container {
+                width: 300px;
+                right: 10px;
+                bottom: 10px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Estado ativo do chatbot */
+        .chatbot-active .chatbot-window {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chatbot-active .chatbot-toggle {
+            transform: rotate(90deg);
+            transition: transform 0.3s ease;
+        }
+
+        /* Números no chatbot */
+        .info-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: var(--cor-destaque);
+            color: var(--branco);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .bot-message ul {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bot-message li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <h1 class="logo">MINHA <span class="logo-accent">LOJINHA!</span></h1>
+                <div class="slogan">UM PASSA TEMPO ESPECIAL</div>
+            </div>
+            
+            <div class="security-badges">
+                <div class="badge">
+                    <i class="fas fa-lock"></i>
+                    <span>SITE SEGURO</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>COMPRA PROTEGIDA</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-tag"></i>
+                    <span>MELHORES PREÇOS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo principal -->
+    <main class="container">
+        <!-- Seção de introdução -->
+        <section class="intro-section">
+            <div class="intro-content">
+                <h2 class="intro-title">🛍️ BEM-VINDO AO SEU NOVO PASSA TEMPO! 🛍️</h2>
+                <p class="reflection-text">
+                    Em um mundo que não para, encontrar momentos de prazer nas pequenas coisas é um ato de resistência. 
+                    <strong>Aqui, cada produto foi selecionado para transformar seus momentos de ócio em experiências memoráveis.</strong> 
+                    Porque você merece mais do que apenas passar o tempo - merece saborear cada instante.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Seção de produtos -->
+        <section class="products-section">
+            <h2 class="section-title">CATÁLOGO DE PASSA TEMPOS</h2>
+            <div class="products-grid" id="products-container">
+                <!-- Os produtos serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <h3 class="chatbot-title">ASSISTENTE VIRTUAL</h3>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbotMessages">
+                <!-- Mensagens serão adicionadas aqui -->
+            </div>
+            
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="chatbot-input-area">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua mensagem...">
+                <button class="chatbot-send" id="chatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">
+                <strong>Minha Lojinha! - Um Passa Tempo Especial</strong><br>
+                Nosso catálogo é atualizado constantemente com os melhores produtos para seu entretenimento.
+            </p>
+            
+            <div class="disclaimer">
+                <strong>AVISO IMPORTANTE:</strong> Este site atua como afiliado de empresas oficiais. 
+                Todas as transações são realizadas diretamente nas lojas oficiais dos produtos, 
+                garantindo total segurança e proteção dos seus dados. Não armazenamos informações financeiras.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Sistema de Chatbot com Números
+        class Chatbot {
+            constructor() {
+                this.userName = null;
+                this.currentStep = 0; // 0 = saudação, 1-4 = informações, 5 = finalização
+                this.infoSteps = [
+                    {
+                        number: 1,
+                        title: "SOBRE A SEGURANÇA DO SITE",
+                        content: "Nosso site utiliza conexão criptografada (HTTPS) para proteger todas as suas interações. Trabalhamos com os mais altos padrões de segurança digital para garantir que sua navegação seja 100% segura."
+                    },
+                    {
+                        number: 2,
+                        title: "SOBRE SER AFILIADO A EMPRESAS OFICIAIS",
+                        content: "Somos afiliados diretos das marcas que você encontra aqui. Isso significa que todos os produtos são 100% originais e você compra diretamente das empresas oficiais, com todas as garantias do fabricante."
+                    },
+                    {
+                        number: 3,
+                        title: "SOBRE A PRIVACIDADE DOS SEUS DADOS",
+                        content: "NÃO ARMAZENAMOS SEUS DADOS! Você será redirecionado diretamente ao site oficial do produto para finalizar a compra. Suas informações ficam apenas com a loja oficial, garantindo máxima segurança."
+                    },
+                    {
+                        number: 4,
+                        title: "SOBRE OS MELHORES PRODUTOS",
+                        content: "Selecionamos cuidadosamente cada item do nosso catálogo. Trabalhamos apenas com produtos de alta qualidade que realmente proporcionam experiências especiais para seus momentos de passa tempo."
+                    },
+                    {
+                        number: 5,
+                        title: "SOBRE CURTIR O MOMENTO",
+                        content: "Em um mundo acelerado, dedicar tempo para si mesmo é um ato de autocuidado. Cada produto aqui foi pensado para ajudar você a desacelerar, encontrar prazer nas pequenas coisas e criar memórias especiais."
+                    }
+                ];
+                
+                this.messagesContainer = document.getElementById('chatbotMessages');
+                this.inputField = document.getElementById('chatbotInput');
+                this.sendButton = document.getElementById('chatbotSend');
+                this.typingIndicator = document.getElementById('typingIndicator');
+                this.chatbotWindow = document.getElementById('chatbotWindow');
+                this.chatbotToggle = document.getElementById('chatbotToggle');
+                this.chatbotContainer = document.getElementById('chatbotContainer');
+                
+                this.setupEventListeners();
+                this.startConversation();
+            }
+            
+            setupEventListeners() {
+                this.sendButton.addEventListener('click', () => this.sendMessage());
+                this.inputField.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+                
+                this.chatbotToggle.addEventListener('click', () => {
+                    this.chatbotContainer.classList.toggle('chatbot-active');
+                    // Foca no input quando abre o chatbot
+                    if (this.chatbotContainer.classList.contains('chatbot-active')) {
+                        setTimeout(() => {
+                            this.inputField.focus();
+                        }, 300);
+                    }
+                });
+            }
+            
+            showTypingIndicator() {
+                this.typingIndicator.style.display = 'flex';
+            }
+            
+            hideTypingIndicator() {
+                this.typingIndicator.style.display = 'none';
+            }
+            
+            addMessage(text, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', `${sender}-message`);
+                messageElement.innerHTML = text;
+                this.messagesContainer.appendChild(messageElement);
+                this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+            }
+            
+            simulateTyping(response, delay = 800) {
+                this.showTypingIndicator();
+                setTimeout(() => {
+                    this.hideTypingIndicator();
+                    this.addMessage(response, 'bot');
+                }, delay);
+            }
+            
+            startConversation() {
+                setTimeout(() => {
+                    this.addMessage(
+                        `👋 Olá! Eu sou o assistente virtual da <strong>Minha Lojinha!</strong><br>
+                        Como posso chamar você?`,
+                        'bot'
+                    );
+                }, 500);
+            }
+            
+            showInformationOptions() {
+                const optionsList = this.infoSteps.map(step => 
+                    `<li><span class="info-number">${step.number}</span> ${step.title}</li>`
+                ).join('');
+                
+                this.simulateTyping(
+                    `Perfeito, ${this.userName}! 😊<br><br>
+                    Eu posso te explicar sobre 5 pontos importantes da nossa loja:<br><br>
+                    <ul>${optionsList}</ul>
+                    <strong>Digite o número (1 a 5) sobre o qual quer saber mais:</strong>`,
+                    1000
+                );
+            }
+            
+            showInformationStep(stepNumber) {
+                const step = this.infoSteps.find(s => s.number === stepNumber);
+                if (!step) return;
+                
+                this.simulateTyping(
+                    `<strong><span class="info-number">${step.number}</span> ${step.title}</strong><br><br>
+                    ${step.content}<br><br>
+                    <strong>Digite o próximo número (${stepNumber + 1} a 5) ou "fim" para encerrar:</strong>`,
+                    800
+                );
+            }
+            
+            finalizeConversation() {
+                this.simulateTyping(
+                    `🎉 Muito obrigado, ${this.userName}, por conhecer mais sobre a <strong>Minha Lojinha!</strong><br><br>
+                    Espero que encontre o passa tempo perfeito para transformar seus momentos especiais!<br><br>
+                    <strong>Boas compras e aproveite cada instante! 🛍️✨</strong>`,
+                    800
+                );
+                
+                // Desabilita o input após finalizar
+                this.inputField.disabled = true;
+                this.inputField.placeholder = "Conversa encerrada";
+                this.sendButton.disabled = true;
+            }
+            
+            processResponse(userInput) {
+                const input = userInput.trim();
+                
+                switch(this.currentStep) {
+                    case 0: // Saudação e pedindo nome
+                        this.userName = input || 'amigo(a)';
+                        this.addMessage(this.userName, 'user');
+                        this.currentStep = 1;
+                        
+                        this.simulateTyping(
+                            `Prazer em conhecer você, ${this.userName}! 😊`,
+                            800
+                        );
+                        
+                        setTimeout(() => {
+                            this.showInformationOptions();
+                        }, 1200);
+                        break;
+                        
+                    case 1: // Mostrando opções de números
+                        this.addMessage(input, 'user');
+                        
+                        // Verifica se o usuário digitou um número de 1 a 5
+                        const numberInput = parseInt(input);
+                        if (numberInput >= 1 && numberInput <= 5) {
+                            this.showInformationStep(numberInput);
+                        } else if (input.toLowerCase() === 'fim') {
+                            this.finalizeConversation();
+                            this.currentStep = 5; // Finalizado
+                        } else {
+                            this.simulateTyping(
+                                `Por favor, digite um número de 1 a 5 para saber mais sobre aquele tópico, ou "fim" para encerrar.`,
+                                800
+                            );
+                        }
+                        break;
+                        
+                    case 2: // Já viu pelo menos uma informação
+                    case 3:
+                    case 4:
+                        this.addMessage(input, 'user');
+                        
+                        const num = parseInt(input);
+                        if (num >= 1 && num <= 5) {
+                            this.showInformationStep(num);
+                        } else if (input.toLowerCase() === 'fim') {
+                            this.finalizeConversation();
+                            this.currentStep = 5; // Finalizado
+                        } else {
+                            // Conta quantas informações já foram mostradas
+                            const remainingNumbers = [1,2,3,4,5];
+                            this.simulateTyping(
+                                `Digite um dos números ainda não vistos ou "fim" para encerrar.`,
+                                800
+                            );
+                        }
+                        break;
+                }
+                
+                this.inputField.value = '';
+                this.inputField.focus();
+            }
+            
+            sendMessage() {
+                const userInput = this.inputField.value.trim();
+                if (!userInput) return;
+                
+                this.processResponse(userInput);
+            }
+        }
+        
+        // Sistema de Produtos
+        class ProductManager {
+            constructor() {
+                this.productsContainer = document.getElementById('products-container');
+                this.products = [];
+                this.loadProducts();
+            }
+            
+            async loadProducts() {
+                try {
+                    // Tenta carregar o arquivo produtos.json
+                    const response = await fetch('produtos.json');
+                    if (!response.ok) throw new Error('Arquivo produtos.json não encontrado');
+                    
+                    this.products = await response.json();
+                    this.renderProducts();
+                } catch (error) {
+                    console.log('Carregando produtos padrão:', error.message);
+                    this.loadDefaultProducts();
+                }
+            }
+            
+            loadDefaultProducts() {
+                // Produtos padrão caso o arquivo JSON não exista
+                this.products = [
+                    {
+                        id: 1,
+                        nome: "Kit Relaxamento Aromaterapia",
+                        descricao: "Conjunto completo com difusor e óleos essenciais para criar um ambiente zen.",
+                        preco_original: 189.90,
+                        preco_desconto: 129.90,
+                        imagem_url: "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                        link_afiliado: "https://exemplo.com/produto1",
+                        categoria: "Relaxamento"
+                    },
+                    {
+                        id: 2,
+                        nome: "Quebra-Cabeça 1000 Peças",
+                        descricao: "Desafie sua mente com este lindo quebra-cabeça tema natureza.",
+                        preco_original: 89.90,
+                        preco_desconto: 59.90,
+                        imagem_url: "https://images.unsplash.com/photo-1589244159943-4600886dd3c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                        link_afiliado: "https://exemplo.com/produto2",
+                        categoria: "Jogos"
+                    },
+                    {
+                        id: 3,
+                        nome: "Kit Pintura por Números",
+                        descricao: "Crie sua própria obra de arte com este kit completo para iniciantes.",
+                        preco_original: 149.90,
+                        preco_desconto: 99.90,
+                        imagem_url: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                        link_afiliado: "https://exemplo.com/produto3",
+                        categoria: "Artesanato"
+                    }
+                ];
+                
+                this.renderProducts();
+            }
+            
+            renderProducts() {
+                this.productsContainer.innerHTML = '';
+                
+                this.products.forEach(product => {
+                    const productCard = this.createProductCard(product);
+                    this.productsContainer.appendChild(productCard);
+                });
+            }
+            
+            createProductCard(product) {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                
+                const discountPercentage = Math.round(((product.preco_original - product.preco_desconto) / product.preco_original) * 100);
+                
+                card.innerHTML = `
+                    <div class="product-badge">-${discountPercentage}%</div>
+                    <img src="${product.imagem_url}" alt="${product.nome}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.nome}</h3>
+                        <p class="product-description">${product.descricao}</p>
+                        <div class="price-container">
+                            <span class="original-price">R$ ${product.preco_original.toFixed(2)}</span>
+                            <span class="discount-price">R$ ${product.preco_desconto.toFixed(2)}</span>
+                        </div>
+                        <a href="${product.link_afiliado}" target="_blank" class="btn-affiliate">
+                            VER OFERTA EXCLUSIVA
+                        </a>
+                    </div>
+                `;
+                
+                return card;
+            }
+        }
+        
+        // Inicialização quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicia o chatbot
+            window.chatbot = new Chatbot();
+            
+            // Inicia o gerenciador de produtos
+            window.productManager = new ProductManager();
+            
+            // Mensagem de boas-vindas no console
+            console.log('%c🛍️ MINHA LOJINHA! 🛍️', 'color: #E17055; font-size: 18px; font-weight: bold;');
+            console.log('%cSistema de afiliados carregado com sucesso!', 'color: #333;');
+            console.log('%cChatbot com sistema numérico inicializado.', 'color: #333;');
+        });
+    </script>
+</body>
+</html>
